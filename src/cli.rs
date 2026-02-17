@@ -13,7 +13,7 @@ pub struct Cli {
     /// Determines verbosity of the processing, can be specified multiple times (max -vvv)
     #[structopt(short, long, parse(from_occurrences))]
     pub verbosity: u8,
-    /// Path to the config_ini file to usse
+    /// Path to the config_ini file to use
     #[clap(short, long, value_parser)]
     pub config_ini: Option<std::path::PathBuf>,
     /// Write out pod5 files
@@ -22,7 +22,7 @@ pub struct Cli {
 }
 
 impl Cli {
-    /// Sets logging level suplied by verbosity count.
+    /// Sets logging level supplied by verbosity count.
     ///
     /// Levels possible are:
     ///

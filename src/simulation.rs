@@ -215,7 +215,7 @@ pub fn parse_kmers(
     Ok((remainder, kmers))
 }
 
-/// Generate signal for a stall sequence and adpator DNA
+/// Generate signal for a stall sequence and adaptor DNA
 pub fn generate_prefix() -> Result<Vec<i16>, Box<dyn Error>> {
     let file = File::open("static/prefix.squiggle.npy").unwrap();
     let mmap = unsafe { Mmap::map(&file).unwrap() };
@@ -223,7 +223,7 @@ pub fn generate_prefix() -> Result<Vec<i16>, Box<dyn Error>> {
     Ok(view)
 }
 
-/// Replace all occurences of a character in a string with a randomly chosen A,C,G, or T.
+/// Replace all occurrences of a character in a string with a randomly chosen A,C,G, or T.
 ///  Used to remove Ns from reference.
 /// If char to replace is None, We actually replace anything that is not a base
 fn replace_char_with_base(string: &str, _char_to_replace: Option<char>) -> String {

@@ -22,7 +22,7 @@ extern crate log;
 extern crate lazy_static;
 
 mod read_length_distribution;
-/// Import all our definied services
+/// Import all our defined services
 mod services;
 
 use chrono::prelude::*;
@@ -299,7 +299,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         software_config
             .get("TLS", "cert-dir")
             .expect("Tls cert dir not found in config.ini"),
-    ); // Setup the TLS certifcates using the Minknow TLS certs
+    ); // Setup the TLS certificates using the Minknow TLS certs
     let cert = tokio::fs::read(format!("{}", tls_cert_path.join("server.crt").display()))
         .await
         .expect("No TLS certs found");
@@ -342,7 +342,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         (NucleotideType::DNA, PoreType::R10) => SimType::DNAR10,
         (NucleotideType::RNA, PoreType::R9) => SimType::RNAR9,
         _ => {
-            panic!("We shouldn't be readig sequence for R10 RNA or R9DNA");
+            panic!("We shouldn't be reading sequence for R10 RNA or R9 DNA");
         }
     };
     let profile = simulation::get_sim_profile(sim_type);
@@ -416,7 +416,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         std::thread::sleep(Duration::from_secs(10));
         std::process::exit(0);
     })
-    .expect("FAILED TO CATCH SIGNAL SOMWHOW");
+    .expect("FAILED TO CATCH SIGNAL SOMEHOW");
     Server::builder()
         .tls_config(tls_position)
         .unwrap()
